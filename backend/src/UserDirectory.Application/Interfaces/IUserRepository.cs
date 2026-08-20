@@ -1,6 +1,6 @@
 using UserDirectory.Domain;
 
-namespace UserDirectory.Application;
+namespace UserDirectory.Application.Interfaces;
 
 public interface IUserRepository
 {

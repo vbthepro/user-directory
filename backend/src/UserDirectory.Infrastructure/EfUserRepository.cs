@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UserDirectory.Application;
+using UserDirectory.Application.Interfaces;
 using UserDirectory.Domain;
 
 namespace UserDirectory.Infrastructure;

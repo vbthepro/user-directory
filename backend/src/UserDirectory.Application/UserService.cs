@@ -1,4 +1,5 @@
 using UserDirectory.Domain;
+using UserDirectory.Application.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 namespace UserDirectory.Application;

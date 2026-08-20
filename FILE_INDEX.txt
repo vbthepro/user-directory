@@ -6,7 +6,7 @@
 /mnt/data/user-directory/backend/src/UserDirectory.Api/Program.cs
 /mnt/data/user-directory/backend/src/UserDirectory.Api/UserDirectory.Api.csproj
 /mnt/data/user-directory/backend/src/UserDirectory.Application/Contracts.cs
-/mnt/data/user-directory/backend/src/UserDirectory.Application/IUserRepository.cs
+/mnt/data/user-directory/backend/src/UserDirectory.Application/Interfaces/IUserRepository.cs
 /mnt/data/user-directory/backend/src/UserDirectory.Application/UserDirectory.Application.csproj
 /mnt/data/user-directory/backend/src/UserDirectory.Application/UserService.cs
 /mnt/data/user-directory/backend/src/UserDirectory.Domain/User.cs

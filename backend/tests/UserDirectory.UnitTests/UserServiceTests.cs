@@ -1,4 +1,5 @@
 using UserDirectory.Application;
+using UserDirectory.Application.Interfaces;
 using UserDirectory.Domain;
 using Xunit;
 
