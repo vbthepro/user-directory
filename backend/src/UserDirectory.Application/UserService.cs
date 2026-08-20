@@ -17,7 +17,7 @@ public sealed class UserService(IUserRepository repository)
     public async Task<UserDto> CreateAsync(UserRequest request, CancellationToken ct)
     {
         Validate(request);
-        var user = new User(request.Name, request.Age, request.City, request.State, request.Pincode);
+        var user = new User(request.Name, request.Age!.Value, request.City, request.State, request.Pincode);
         await repository.AddAsync(user, ct);
         await repository.SaveChangesAsync(ct);
         return Map(user);
@@ -28,7 +28,7 @@ public sealed class UserService(IUserRepository repository)
         Validate(request);
         var user = await repository.GetAsync(id, ct);
         if (user is null) return null;
-        user.Update(request.Name, request.Age, request.City, request.State, request.Pincode);
+        user.Update(request.Name, request.Age!.Value, request.City, request.State, request.Pincode);
         await repository.SaveChangesAsync(ct);
         return Map(user);
     }

@@ -24,6 +24,13 @@ public sealed class UserServiceTests
     }
 
     [Fact]
+    public async Task CreateAsync_rejects_missing_age()
+    {
+        var service = new UserService(new FakeRepository());
+        await Assert.ThrowsAsync<System.ComponentModel.DataAnnotations.ValidationException>(() => service.CreateAsync(new UserRequest { Name = "Ada Lovelace", City = "London", State = "London", Pincode = "10001" }, default));
+    }
+
+    [Fact]
     public async Task UpdateAsync_returns_null_for_unknown_id()
     {
         var service = new UserService(new FakeRepository());
