@@ -7,7 +7,20 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   if (!response.ok) throw new Error((await response.text()) || 'Request failed');
   return response.status === 204 ? (undefined as T) : response.json();
 }
+
+async function requestWithRetry<T>(path: string, attempts = 10): Promise<T> {
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return await request<T>(path);
+    } catch (error) {
+      if (attempt === attempts || !(error instanceof TypeError)) throw error;
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+  }
+  throw new Error('Request failed');
+}
+
 export const usersApi = {
-  list: () => request<User[]>('/api/users'),
+  list: () => requestWithRetry<User[]>('/api/users'),
   create: (data: UserInput) => request<User>('/api/users', { method: 'POST', body: JSON.stringify(data) }),
 };
