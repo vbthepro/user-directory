@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug backend API",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/src/UserDirectory.Api/bin/Debug/net8.0/UserDirectory.Api.exe",
+      "cwd": "${workspaceFolder}/backend/src/UserDirectory.Api",
+      "env": { "ASPNETCORE_URLS": "http://localhost:5000" },
+      "preLaunchTask": "build: backend"
+    },
+    {
+      "name": "Debug frontend",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "run: frontend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug full application",
+      "configurations": ["Debug backend API", "Debug frontend"],
+      "stopAll": true
+    }
+  ]
+}
